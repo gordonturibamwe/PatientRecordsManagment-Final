@@ -9,5 +9,4 @@ Doctors managing patients records information:
 * Patients keep track of their records
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+------------
