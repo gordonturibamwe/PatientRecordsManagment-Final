@@ -39,7 +39,7 @@ group :development, :test do
 
   ################
   gem 'rspec-rails', '~> 3.0'
-  gem "capybara", "2.1.0" #-- helps in testing the html
+  gem "capybara" #-- helps in testing the html
   gem 'rb-fsevent'
   gem 'guard-rspec'
   gem 'guard-livereload'
