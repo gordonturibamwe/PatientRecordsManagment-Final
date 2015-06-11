@@ -1,0 +1,217 @@
+
+    <h2>Patient Managment System</h2>
+    <div class="row top30"></div>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#gordon"><strong>Gordon</strong></a></li>
+      <li><a data-toggle="tab" href="#visits"><strong>Hospital Visits</strong></a></li>
+      <li><a data-toggle="tab" href="#medications"><strong>Medications</strong></a></li>
+    </ul>
+    <hr>
+    <div class="tab-content">
+      <div id="gordon" class="tab-pane fade in active">
+        <h3>Gordon's Records</h3>
+        <hr>
+        <address>
+          <strong>Contact Info.</strong><br>
+          795 Folsom Ave, Suite 600<br>
+          San Francisco, CA 94107<br>
+          <abbr title="Phone">P:</abbr> (781) 584-0782
+        </address>
+
+        <address>
+          <strong>Full Name</strong><br>
+          <a href="mailto:#">turibamwe@outlook.com</a>
+        </address>
+        <hr>
+        <div class="row">
+          <div class="col-md-3"> <strong> GENDER:</strong> <%= @patient.gender %> </div>
+          <div class="col-md-3"> <strong> DOB:</strong> <%= @patient.dob %> </div>
+          <div class="col-md-3"> <strong> SICKNESS:</strong> <%= @patient.sickness %> </div>
+          <div class="col-md-3"> <strong> PROXY:</strong> <%= @patient.proxyName %>  </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-12"> 
+            <strong>SUMMARY:</strong><br>
+            <hr>
+            <p>
+              Pellentesque iaculis ex vitae nunc maximus viverra. Mauris dictum cursus mollis. Mauris pulvinar sodales ipsum, tristique commodo leo posuere at. Aliquam at molestie nisl. Aliquam at ullamcorper diam. Donec quis mauris porttitor, dapibus tellus non, imperdiet felis. Sed risus magna, elementum vel velit eu, tempor bibendum neque. Nunc et neque quis justo placerat volutpat sed et lectus. Donec aliquam ut tortor eget bibendum. Donec auctor a leo ac condimentum. 
+            </p>
+            <p>
+              Pellentesque iaculis ex vitae nunc maximus viverra. Mauris dictum cursus mollis. Mauris pulvinar sodales ipsum, tristique commodo leo posuere at. Aliquam at molestie nisl. Aliquam at ullamcorper diam. Donec quis mauris porttitor, dapibus tellus non, imperdiet felis. Sed risus magna, elementum vel velit eu, tempor bibendum neque. Nunc et neque quis justo placerat volutpat sed et lectus. Donec aliquam ut tortor eget bibendum. Donec auctor a leo ac condimentum. Vestibulum viverra ipsum in justo sollicitudin gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, ligula nec imperdiet imperdiet, nunc purus fringilla augue, eget vulputate leo ex at erat.
+            </p>
+            <p>
+              Pellentesque iaculis ex vitae nunc maximus viverra. Mauris dictum cursus mollis. Mauris pulvinar sodales ipsum, tristique commodo leo posuere at. Aliquam at molestie nisl. Aliquam at ullamcorper diam. Donec quis mauris porttitor, dapibus tellus non, imperdiet felis. Sed risus magna, elementum vel velit eu, tempor bibendum neque. Nunc et neque quis justo placerat volutpat sed et lectus. Donec aliquam ut tortor eget bibendum. Donec auctor a leo ac condimentum. elementum vel velit eu, tempor bibendum neque. Nunc et neque quis justo placerat volutpat sed et lectus. Donec aliquam ut tortor eget bibendum. Donec auctor a leo ac condimentum. Vestibulum viverra ipsum in justo sollicitudin gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, ligula nec imperdiet imperdiet, nunc purus fringilla augue, eget vulputate leo ex at erat.
+            </p>
+            <p>
+              Pellentesque iaculis ex vitae nunc maximus viverra. Mauris dictum cursus mollis. Mauris pulvinar sodales ipsum, tristique commodo leo posuere at. Aliquam at molestie nisl. Aliquam at ullamcorper diam. Donec quis mauris porttitor, dapibus tellus non, imperdiet felis. Sed risus magna, elementum vel velit eu, tempor bibendum neque. Nunc et neque quis justo placerat volutpat sed et lectus. Donec aliquam ut tortor eget bibendum. Donec auctor a leo ac condimentum. Vestibulum viverra ipsum in justo sollicitudin gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, ligula nec imperdiet imperdiet, nunc purus fringilla augue, eget vulputate leo ex at erat.
+            </p>
+            <hr>
+          </div>
+        </div>
+      </div>
+      <div id="addPatient" class="tab-pane fade">
+        <h3>Add Patient</h3>
+        <hr>
+        <form>
+          <div class="form-group col-md-12">
+            <label for="exampleInputEmail2">Add Patient</label>
+          </div>
+
+          <div class="form-group col-md-6">
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+          </div>
+          <div class="form-group col-md-6">
+            <a href="#" class="btn btn-md btn-primary"> <strong>Add</strong></a>
+          </div>
+          <hr>
+        </form>
+        <hr>
+        <div class="row top30"></div>
+      </div>
+      <div id="visits" class="tab-pane fade">
+        <h3>Gordon's visits</h3>
+        <hr>
+        <div class="row">
+          <div class="col-md-4"> <strong> DATE: </strong> 2015-04-13 </div>
+          <div class="col-md-4"> <strong> DOCTOR: </strong> Dr. Philly </div>
+          <div class="col-md-4"> <strong> VITALS: </strong> T. 98 | HM. 98/34 | H. 165.3 </div>
+          <div class="col-md-12"> 
+            <hr>
+            <strong>REASON:</strong><br>
+            Pellentesque iaculis ex vitae nunc maximus viverra. Mauris dictum cursus mollis. Mauris pulvinar sodales ipsum, tristique commodo leo posuere at. Aliquam at molestie nisl. Aliquam at ullamcorper diam. Donec quis mauris porttitor, dapibus tellus non, imperdiet felis. Sed risus magna, elementum vel velit eu, tempor bibendum neque. Nunc et neque quis justo placerat volutpat sed et lectus. Donec aliquam ut tortor eget bibendum. Donec auctor a leo ac condimentum. Vestibulum viverra ipsum in justo sollicitudin gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, ligula nec imperdiet imperdiet, nunc purus fringilla augue, eget vulputate leo ex at erat.
+          </div>
+        </div>
+        <hr>
+        <hr>
+        <div class="row">
+          <div class="col-md-4"> <strong> DATE: </strong> 2015-04-13 </div>
+          <div class="col-md-4"> <strong> DOCTOR: </strong> Dr. Philly </div>
+          <div class="col-md-4"> <strong> VITALS: </strong> T. 98 | HM. 98/34 | H. 165.3 </div>
+          <div class="col-md-12"> 
+            <hr>
+            <strong>REASON:</strong><br>
+            Pellentesque iaculis ex vitae nunc maximus viverra. Mauris dictum cursus mollis. Mauris pulvinar sodales ipsum, tristique commodo leo posuere at. Aliquam at molestie nisl. Aliquam at ullamcorper diam. Donec quis mauris porttitor, dapibus tellus non, imperdiet felis. Sed risus magna, elementum vel velit eu, tempor bibendum neque. Nunc et neque quis justo placerat volutpat sed et lectus. Donec aliquam ut tortor eget bibendum. Donec auctor a leo ac condimentum. Vestibulum viverra ipsum in justo sollicitudin gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, ligula nec imperdiet imperdiet, nunc purus fringilla augue, eget vulputate leo ex at erat.
+          </div>
+        </div>
+        <hr>
+        <hr>
+        <div class="row">
+          <div class="col-md-4"> <strong> DATE: </strong> 2015-04-13 </div>
+          <div class="col-md-4"> <strong> DOCTOR: </strong> Dr. Philly </div>
+          <div class="col-md-4"> <strong> VITALS: </strong> T. 98 | HM. 98/34 | H. 165.3 </div>
+          <div class="col-md-12"> 
+            <hr>
+            <strong>REASON:</strong><br>
+            Pellentesque iaculis ex vitae nunc maximus viverra. Mauris dictum cursus mollis. Mauris pulvinar sodales ipsum, tristique commodo leo posuere at. Aliquam at molestie nisl. Aliquam at ullamcorper diam. Donec quis mauris porttitor, dapibus tellus non, imperdiet felis. Sed risus magna, elementum vel velit eu, tempor bibendum neque. Nunc et neque quis justo placerat volutpat sed et lectus. Donec aliquam ut tortor eget bibendum. Donec auctor a leo ac condimentum. Vestibulum viverra ipsum in justo sollicitudin gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, ligula nec imperdiet imperdiet, nunc purus fringilla augue, eget vulputate leo ex at erat.
+          </div>
+        </div>
+        <hr>
+        <hr>
+        <div class="row">
+          <div class="col-md-4"> <strong> DATE: </strong> 2015-04-13 </div>
+          <div class="col-md-4"> <strong> DOCTOR: </strong> Dr. Philly </div>
+          <div class="col-md-4"> <strong> VITALS: </strong> T. 98 | HM. 98/34 | H. 165.3 </div>
+          <div class="col-md-12"> 
+            <hr>
+            <strong>REASON:</strong><br>
+            Pellentesque iaculis ex vitae nunc maximus viverra. Mauris dictum cursus mollis. Mauris pulvinar sodales ipsum, tristique commodo leo posuere at. Aliquam at molestie nisl. Aliquam at ullamcorper diam. Donec quis mauris porttitor, dapibus tellus non, imperdiet felis. Sed risus magna, elementum vel velit eu, tempor bibendum neque. Nunc et neque quis justo placerat volutpat sed et lectus. Donec aliquam ut tortor eget bibendum. Donec auctor a leo ac condimentum. Vestibulum viverra ipsum in justo sollicitudin gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, ligula nec imperdiet imperdiet, nunc purus fringilla augue, eget vulputate leo ex at erat.
+          </div>
+        </div>
+        <hr>
+        <hr>
+        <div class="row">
+          <div class="col-md-4"> <strong> DATE: </strong> 2015-04-13 </div>
+          <div class="col-md-4"> <strong> DOCTOR: </strong> Dr. Philly </div>
+          <div class="col-md-4"> <strong> VITALS: </strong> T. 98 | HM. 98/34 | H. 165.3 </div>
+          <div class="col-md-12"> 
+            <hr>
+            <strong>REASON:</strong><br>
+            Pellentesque iaculis ex vitae nunc maximus viverra. Mauris dictum cursus mollis. Mauris pulvinar sodales ipsum, tristique commodo leo posuere at. Aliquam at molestie nisl. Aliquam at ullamcorper diam. Donec quis mauris porttitor, dapibus tellus non, imperdiet felis. Sed risus magna, elementum vel velit eu, tempor bibendum neque. Nunc et neque quis justo placerat volutpat sed et lectus. Donec aliquam ut tortor eget bibendum. Donec auctor a leo ac condimentum. Vestibulum viverra ipsum in justo sollicitudin gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, ligula nec imperdiet imperdiet, nunc purus fringilla augue, eget vulputate leo ex at erat.
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div id="medications" class="tab-pane fade">
+        <h3>Gordon's Medication</h3>
+        <hr>
+        <div class="row">
+          <div class="col-md-3"> <strong> NAME: </strong> Vitamin D </div>
+          <div class="col-md-3"> <strong> DOCTOR: </strong> Dr. Philly </div>
+          <div class="col-md-3"> <strong> REFILLS: </strong> 9 </div>
+          <div class="col-md-3"> <strong> PHAMACY: </strong> Walgreens </div>
+          <div class="col-md-12"> 
+            <hr>
+            <strong>DOCTOR'S NOTES:</strong><br>
+            Pellentesque iaculis ex vitae nunc maximus viverra. Mauris dictum cursus mollis. Mauris pulvinar sodales ipsum, tristique commodo leo posuere at. Aliquam at molestie nisl. Aliquam at ullamcorper diam. Donec quis mauris porttitor, dapibus tellus non, imperdiet felis. Sed risus magna, elementum vel velit eu, tempor bibendum neque. Nunc et neque quis justo placerat volutpat sed et lectus. Donec aliquam ut tortor eget bibendum. Donec auctor a leo ac condimentum. Vestibulum viverra ipsum in justo sollicitudin gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, ligula nec imperdiet imperdiet, nunc purus fringilla augue, eget vulputate leo ex at erat.
+          </div>
+        </div>
+        <hr>
+        <hr>
+        <div class="row">
+          <div class="col-md-3"> <strong> NAME: </strong> Vitamin D </div>
+          <div class="col-md-3"> <strong> DOCTOR: </strong> Dr. Philly </div>
+          <div class="col-md-3"> <strong> REFILLS: </strong> 9 </div>
+          <div class="col-md-3"> <strong> PHAMACY: </strong> Walgreens </div>
+          <div class="col-md-12"> 
+            <hr>
+            <strong>DOCTOR'S NOTES:</strong><br>
+            Pellentesque iaculis ex vitae nunc maximus viverra. Mauris dictum cursus mollis. Mauris pulvinar sodales ipsum, tristique commodo leo posuere at. Aliquam at molestie nisl. Aliquam at ullamcorper diam. Donec quis mauris porttitor, dapibus tellus non, imperdiet felis. Sed risus magna, elementum vel velit eu, tempor bibendum neque. Nunc et neque quis justo placerat volutpat sed et lectus. Donec aliquam ut tortor eget bibendum. Donec auctor a leo ac condimentum. Vestibulum viverra ipsum in justo sollicitudin gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, ligula nec imperdiet imperdiet, nunc purus fringilla augue, eget vulputate leo ex at erat.
+          </div>
+        </div>
+        <hr>
+        <hr>
+        <div class="row">
+          <div class="col-md-3"> <strong> NAME: </strong> Vitamin D </div>
+          <div class="col-md-3"> <strong> DOCTOR: </strong> Dr. Philly </div>
+          <div class="col-md-3"> <strong> REFILLS: </strong> 9 </div>
+          <div class="col-md-3"> <strong> PHAMACY: </strong> Walgreens </div>
+          <div class="col-md-12"> 
+            <hr>
+            <strong>DOCTOR'S NOTES:</strong><br>
+            Pellentesque iaculis ex vitae nunc maximus viverra. Mauris dictum cursus mollis. Mauris pulvinar sodales ipsum, tristique commodo leo posuere at. Aliquam at molestie nisl. Aliquam at ullamcorper diam. Donec quis mauris porttitor, dapibus tellus non, imperdiet felis. Sed risus magna, elementum vel velit eu, tempor bibendum neque. Nunc et neque quis justo placerat volutpat sed et lectus. Donec aliquam ut tortor eget bibendum. Donec auctor a leo ac condimentum. Vestibulum viverra ipsum in justo sollicitudin gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, ligula nec imperdiet imperdiet, nunc purus fringilla augue, eget vulputate leo ex at erat.
+          </div>
+        </div>
+        <hr>
+        <hr>
+        <div class="row">
+          <div class="col-md-3"> <strong> NAME: </strong> Vitamin D </div>
+          <div class="col-md-3"> <strong> DOCTOR: </strong> Dr. Philly </div>
+          <div class="col-md-3"> <strong> REFILLS: </strong> 9 </div>
+          <div class="col-md-3"> <strong> PHAMACY: </strong> Walgreens </div>
+          <div class="col-md-12"> 
+            <hr>
+            <strong>DOCTOR'S NOTES:</strong><br>
+            Pellentesque iaculis ex vitae nunc maximus viverra. Mauris dictum cursus mollis. Mauris pulvinar sodales ipsum, tristique commodo leo posuere at. Aliquam at molestie nisl. Aliquam at ullamcorper diam. Donec quis mauris porttitor, dapibus tellus non, imperdiet felis. Sed risus magna, elementum vel velit eu, tempor bibendum neque. Nunc et neque quis justo placerat volutpat sed et lectus. Donec aliquam ut tortor eget bibendum. Donec auctor a leo ac condimentum. Vestibulum viverra ipsum in justo sollicitudin gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, ligula nec imperdiet imperdiet, nunc purus fringilla augue, eget vulputate leo ex at erat.
+          </div>
+        </div>
+        <hr>
+        <hr>
+        <div class="row">
+          <div class="col-md-3"> <strong> NAME: </strong> Vitamin D </div>
+          <div class="col-md-3"> <strong> DOCTOR: </strong> Dr. Philly </div>
+          <div class="col-md-3"> <strong> REFILLS: </strong> 9 </div>
+          <div class="col-md-3"> <strong> PHAMACY: </strong> Walgreens </div>
+          <div class="col-md-12"> 
+            <hr>
+            <strong>DOCTOR'S NOTES:</strong><br>
+            Pellentesque iaculis ex vitae nunc maximus viverra. Mauris dictum cursus mollis. Mauris pulvinar sodales ipsum, tristique commodo leo posuere at. Aliquam at molestie nisl. Aliquam at ullamcorper diam. Donec quis mauris porttitor, dapibus tellus non, imperdiet felis. Sed risus magna, elementum vel velit eu, tempor bibendum neque. Nunc et neque quis justo placerat volutpat sed et lectus. Donec aliquam ut tortor eget bibendum. Donec auctor a leo ac condimentum. Vestibulum viverra ipsum in justo sollicitudin gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, ligula nec imperdiet imperdiet, nunc purus fringilla augue, eget vulputate leo ex at erat.
+          </div>
+        </div>
+        <hr>
+        <hr>
+        <div class="row">
+          <div class="col-md-3"> <strong> NAME: </strong> Vitamin D </div>
+          <div class="col-md-3"> <strong> DOCTOR: </strong> Dr. Philly </div>
+          <div class="col-md-3"> <strong> REFILLS: </strong> 9 </div>
+          <div class="col-md-3"> <strong> PHAMACY: </strong> Walgreens </div>
+          <div class="col-md-12"> 
+            <hr>
+            <strong>DOCTOR'S NOTES:</strong><br>
+            Pellentesque iaculis ex vitae nunc maximus viverra. Mauris dictum cursus mollis. Mauris pulvinar sodales ipsum, tristique commodo leo posuere at. Aliquam at molestie nisl. Aliquam at ullamcorper diam. Donec quis mauris porttitor, dapibus tellus non, imperdiet felis. Sed risus magna, elementum vel velit eu, tempor bibendum neque. Nunc et neque quis justo placerat volutpat sed et lectus. Donec aliquam ut tortor eget bibendum. Donec auctor a leo ac condimentum. Vestibulum viverra ipsum in justo sollicitudin gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, ligula nec imperdiet imperdiet, nunc purus fringilla augue, eget vulputate leo ex at erat.
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
