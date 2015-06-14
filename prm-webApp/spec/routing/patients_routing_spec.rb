@@ -23,7 +23,6 @@ RSpec.describe PatientsController, type: :routing do
       expect(:post => "/patients").to route_to("patients#create")
     end
 
-<<<<<<< HEAD
     it "routes to #update via PUT" do
       expect(:put => "/patients/1").to route_to("patients#update", :id => "1")
     end
@@ -32,12 +31,6 @@ RSpec.describe PatientsController, type: :routing do
       expect(:patch => "/patients/1").to route_to("patients#update", :id => "1")
     end
 
-=======
-    it "routes to #update" do
-      expect(:put => "/patients/1").to route_to("patients#update", :id => "1")
-    end
-
->>>>>>> 234c9b8af761cd64312d5ac2a3a601d1ccb93988
     it "routes to #destroy" do
       expect(:delete => "/patients/1").to route_to("patients#destroy", :id => "1")
     end

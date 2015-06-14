@@ -12,9 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-<<<<<<< HEAD
 //= require jquery
-=======
->>>>>>> 234c9b8af761cd64312d5ac2a3a601d1ccb93988
 //= require turbolinks
 //= require_tree .

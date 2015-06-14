@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150613113126) do
 
   create_table "contacts", force: :cascade do |t|
@@ -48,23 +47,10 @@ ActiveRecord::Schema.define(version: 20150613113126) do
     t.date     "dob"
     t.string   "nextofkin"
     t.string   "nextofkinphone"
-=======
-ActiveRecord::Schema.define(version: 20150611013329) do
-
-  create_table "patients", force: :cascade do |t|
-    t.string   "firstName"
-    t.string   "lastName"
-    t.string   "gender"
-    t.date     "dob"
-    t.string   "proxyName"
-    t.string   "proxyTelephone"
-    t.string   "sickness"
->>>>>>> 234c9b8af761cd64312d5ac2a3a601d1ccb93988
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
 
-<<<<<<< HEAD
   create_table "summaries", force: :cascade do |t|
     t.text     "notes"
     t.integer  "patient_id"
@@ -75,6 +61,4 @@ ActiveRecord::Schema.define(version: 20150611013329) do
 
   add_index "summaries", ["patient_id"], name: "index_summaries_on_patient_id"
 
-=======
->>>>>>> 234c9b8af761cd64312d5ac2a3a601d1ccb93988
 end
