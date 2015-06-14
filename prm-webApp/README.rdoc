@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 == README
 
 This README would normally document whatever steps are necessary to get the
@@ -26,3 +27,17 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+=======
+== Patient Records Managment System
+
+This is the Patient Records Managment System.
+
+Doctors managing patients records information:
+
+* Doctors sign up patients
+* Doctors add patients records
+* Patients keep track of their records
+
+
+------------
+>>>>>>> 234c9b8af761cd64312d5ac2a3a601d1ccb93988

@@ -3,6 +3,7 @@ class PatientsController < ApplicationController
 
   def index
     @patients = Patient.all
+<<<<<<< HEAD
   end
 
   def show
@@ -13,6 +14,12 @@ class PatientsController < ApplicationController
     @s = Summary.find_by(params[:id])
     @medicine = @s.medicines
     @m = Medicine.where(summary_id: @s)
+=======
+    @new_patient = Patient.new
+  end
+
+  def show
+>>>>>>> 234c9b8af761cd64312d5ac2a3a601d1ccb93988
   end
 
   def new
@@ -20,7 +27,11 @@ class PatientsController < ApplicationController
   end
 
   def edit
+<<<<<<< HEAD
 
+=======
+    @new_patient = Patient.find(params[:id])
+>>>>>>> 234c9b8af761cd64312d5ac2a3a601d1ccb93988
   end
 
   def create
@@ -28,7 +39,11 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.save
+<<<<<<< HEAD
         format.html { redirect_to patient_path(@patient), notice: 'Patient was successfully created.' }
+=======
+        format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
+>>>>>>> 234c9b8af761cd64312d5ac2a3a601d1ccb93988
       else
         format.html { render :new }
       end
@@ -38,7 +53,11 @@ class PatientsController < ApplicationController
   def update
     respond_to do |format|
       if @patient.update(patient_params)
+<<<<<<< HEAD
         format.html { redirect_to patient_path(@patient), notice: 'Patient was successfully updated.' }
+=======
+        format.html { redirect_to patient_path, notice: 'Patient was successfully updated.' }
+>>>>>>> 234c9b8af761cd64312d5ac2a3a601d1ccb93988
       else
         format.html { render :edit }
       end
@@ -58,10 +77,14 @@ class PatientsController < ApplicationController
     end
 
     def patient_params
+<<<<<<< HEAD
       params.require(:patient).permit(:fname, :lname, :gender, :dob, :nextofkin, :nextofkinphone)
     end
 
     def medicine_params
       params.require(:medicine).permit(:name, :gram, :prescription, :refill, :summary_id)
+=======
+      params.require(:patient).permit(:firstName, :lastName, :gender, :dob, :proxyName, :proxyTelephone)
+>>>>>>> 234c9b8af761cd64312d5ac2a3a601d1ccb93988
     end
 end

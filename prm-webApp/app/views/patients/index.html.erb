@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p id="notice"><%= notice %></p>
 
   <div class="row">
@@ -20,3 +21,51 @@
 <hr>
     <% end %>
 
+=======
+<h2>Patient Managment System</h2>
+
+<div class="row top30"></div>
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#patients"><strong>Patients</strong></a></li>
+  <li><a data-toggle="tab" href="#addPatient"><strong>Add Patient</strong></a></li>
+</ul>
+<hr>
+
+<div class="tab-content">
+  <div id="patients" class="tab-pane fade in active">
+    <h3>Patient List</h3>
+    <hr>
+    <div class="row">
+      <div class="col-md-1"><strong> P. ID </strong></div>
+      <div class="col-md-3"><strong> NAME </strong></div>
+      <div class="col-md-2"><strong> GENDER </strong></div>
+      <div class="col-md-2"><strong> SICKNESS </strong></div>
+      <div class="col-md-2"><strong> AGE </strong></div>
+      <div class="col-md-2"><strong> CONTACT </strong></div>
+    </div>
+    <hr>
+    
+    <% @patients.each do |patient| %>
+    <div class="row">
+      <div class="col-md-1"> <strong><%= patient.id_number %></strong> </div>
+      <div class="col-md-3"> <%= link_to patient.firstName, patient %> <%= link_to patient.lastName, patient %></div>
+      <div class="col-md-2"> <%= patient.gender %> </div>
+      <div class="col-md-2"> <%= patient.sickness %> </div>
+      <div class="col-md-2"> <%= patient.age %> Years </div>
+      <div class="col-md-2"> <%= patient.proxyTelephone %>  </div>
+    </div>
+    <hr>      
+    <% end %>
+  </div>
+  <!-- End of Patients Tab -->
+
+
+  <div id="addPatient" class="tab-pane fade">
+    <h3>Add Patient</h3>
+    <hr>
+    <%= render 'form' %>
+    <div class="row top30"></div>
+  </div>
+  <!-- End of Add Patients Tab -->
+</div>
+>>>>>>> 234c9b8af761cd64312d5ac2a3a601d1ccb93988
