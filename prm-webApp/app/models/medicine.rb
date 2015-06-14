@@ -1,3 +1,3 @@
 class Medicine < ActiveRecord::Base
-  belongs_to :summary, polymorphic: true
+  belongs_to :patient
 end

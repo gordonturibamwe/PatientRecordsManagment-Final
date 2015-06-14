@@ -1,22 +1,10 @@
+    <% if user_signed_in? %>
+    
 <p id="notice"><%= notice %></p>
 
-  <div class="row">
-  <div class="col-md-9"> <h2>Listing Patients</h2> </div>
-  <div class="col-md-3 text-right"> <%= link_to 'Add Patient', new_patient_path, :class => "btn btn-success btn-lg" %> </div>
+<div class="row">
+  <div class="col-md-12 text-center"> <%= link_to 'Add Your Information please', new_patient_path, :class => "btn btn-success btn-lg" %></div>
 </div>
-<hr>
-    <% @patients.each do |patient| %>
-    <div class="row">
-    <div class="col-md-3"> <%= patient.fname %> <%= patient.lname %> </div>
-    <div class="col-md-1"> <%= patient.gender %> </div>
-    <div class="col-md-2"> <%= patient.dob %> </div>
-    <div class="col-md-2"> <%= patient.nextofkin %> </div>
-    <div class="col-md-1"> <%= patient.nextofkinphone %> </div>
-    <div class="col-md-3 text-right"> 
-      <%= link_to 'Show', patient, :class => "btn btn-success btn-sm" %> |
-      <%= link_to 'Edit', edit_patient_path(patient), :class => "btn btn-warning btn-sm" %> | <%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %>
-    </div>
-</div>
-<hr>
-    <% end %>
+<% end %>
+
 

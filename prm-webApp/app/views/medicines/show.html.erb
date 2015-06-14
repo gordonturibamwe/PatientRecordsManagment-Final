@@ -6,13 +6,13 @@
 </p>
 
 <p>
-  <strong>Gram:</strong>
-  <%= @medicine.gram %>
+  <strong>Prescription:</strong>
+  <%= @medicine.prescription %>
 </p>
 
 <p>
-  <strong>Prescription:</strong>
-  <%= @medicine.prescription %>
+  <strong>Gram:</strong>
+  <%= @medicine.gram %>
 </p>
 
 <p>
@@ -21,8 +21,13 @@
 </p>
 
 <p>
-  <strong>Summary:</strong>
-  <%= @medicine.summary %>
+  <strong>Info:</strong>
+  <%= @medicine.info %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @medicine.patient %>
 </p>
 
 <%= link_to 'Edit', edit_medicine_path(@medicine) %> |

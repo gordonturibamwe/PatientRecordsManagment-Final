@@ -1,22 +1,24 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @patients = Patient.all
+    if current_user
+      @patients = current_user.patient
+      if !@patients.nil? then redirect_to patient_path(@patients) end
+    else
+      redirect_to home_index_path
+    end
   end
 
   def show
-    @patient = set_patient          # patient id
-    @summary = @patient.summaries   # patient id, summary id, patient_id
-    @contact = @patient.contact     # patient id, contact id, patient_id
-
-    @s = Summary.find_by(params[:id])
-    @medicine = @s.medicines
-    @m = Medicine.where(summary_id: @s)
+      @patient = set_patient          # patient id
+      @summary = @patient.summaries   # patient id, summary id, patient_id
+      @contact = @patient.contact     # patient id, contact id, patient_id
   end
 
   def new
-    @patient = Patient.new
+    @patient = current_user.build_patient
   end
 
   def edit
@@ -24,11 +26,11 @@ class PatientsController < ApplicationController
   end
 
   def create
-    @patient = Patient.new(patient_params)
+    @patient = current_user.build_patient(patient_params)
 
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to patient_path(@patient), notice: 'Patient was successfully created.' }
+        format.html { redirect_to patient_path(@patient), notice: 'Your Contact information was successfully created.' }
       else
         format.html { render :new }
       end
@@ -38,7 +40,7 @@ class PatientsController < ApplicationController
   def update
     respond_to do |format|
       if @patient.update(patient_params)
-        format.html { redirect_to patient_path(@patient), notice: 'Patient was successfully updated.' }
+        format.html { redirect_to patient_path(@patient), notice: 'Your Contact information was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -46,9 +48,10 @@ class PatientsController < ApplicationController
   end
 
   def destroy
+    @patient = Patient.find(params[:id])
     @patient.destroy
     respond_to do |format|
-      format.html { redirect_to patients_url, notice: 'Patient was successfully destroyed.' }
+      format.html { redirect_to patients_url, notice: 'You have successfully deleted patient.' }
     end
   end
 
@@ -58,10 +61,7 @@ class PatientsController < ApplicationController
     end
 
     def patient_params
-      params.require(:patient).permit(:fname, :lname, :gender, :dob, :nextofkin, :nextofkinphone)
+      params.require(:patient).permit(:fname, :lname, :gender, :dob, :nextofkin, :nextofkinphone, :user_id)
     end
 
-    def medicine_params
-      params.require(:medicine).permit(:name, :gram, :prescription, :refill, :summary_id)
-    end
 end

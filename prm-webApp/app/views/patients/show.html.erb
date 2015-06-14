@@ -1,96 +1,84 @@
-    
-<div class="row">
-  <div class="col-md-12"> <%= link_to 'Back to Patient list', patients_path, :class => "btn btn-default btn-sm" %> </div>
-  </div>
-<hr>
-<div class="row">
-  <div class="col-md-3">
-    <address>
-      <abbr title="Title">Name:</abbr> <strong><%= @patient.fname %> <%= @patient.lname %></strong><br>
-      <abbr title="Title">Gender:</abbr> <strong><%= @patient.gender %></strong><br>
-      <abbr title="Title">Date of Birth:</abbr> <strong><%= @patient.dob %></strong><br>
-      <abbr title="Title">Tel:</abbr> <strong>(123) 456-7890</strong>
-    </address>
+ <% if @patient.user == current_user %>   
+        <div class="row">
+          <div class="col-md-3">
+            <address>
+              <abbr title="Title">Name:</abbr> <strong><%= @patient.fname %> <%= @patient.lname %></strong><br>
+              <abbr title="Title">Gender:</abbr> <strong><%= @patient.gender %></strong><br>
+              <abbr title="Title">Date of Birth:</abbr> <strong><%= @patient.dob %></strong><br>
+              <abbr title="Title">Tel:</abbr> <strong>(123) 456-7890</strong>
+            </address>
 
-    <address>
-      <abbr title="Title">Next of Kin:</abbr> <strong><%= @patient.nextofkin %></strong><br>
-      <abbr title="Title">Tel:</abbr> <strong><%= @patient.nextofkinphone %></strong>
-    </address>
-    <%= link_to 'Edit Your Info', edit_patient_path(@patient), :class => "btn btn-warning btn-sm" %>
-    <hr>
-  </div>
+            <address>
+              <abbr title="Title">Next of Kin:</abbr> <strong><%= @patient.nextofkin %></strong><br>
+              <abbr title="Title">Tel:</abbr> <strong><%= @patient.nextofkinphone %></strong>
+            </address>
+            <%= link_to 'Edit Your Info', edit_patient_path(@patient), :class => "btn btn-warning btn-sm" %>
+            <hr>
+          </div>
 
-  <div class="col-md-5">
-    <% if !@patient.contact.nil? %>
-    <address>
-      <abbr title="Title">Mobile tel:</abbr> <strong><%= @patient.contact.mobilephone %></strong><br>
-      <abbr title="Title">Home tel:</abbr> <strong><%= @patient.contact.homephone %></strong><br>
-      <abbr title="Title">City:</abbr> <strong><%= @patient.contact.city %> <%= @patient.contact.state %></strong><br>
-      <abbr title="Title">Country:</abbr> <strong><%= @patient.contact.country %> <%= @patient.contact.zipcode %></strong><br>
-    </address>
+          <div class="col-md-5">
+            <% if !@patient.contact.nil? %>
+            <address>
+              <abbr title="Title">Mobile tel:</abbr> <strong><%= @patient.contact.mobilephone %></strong><br>
+              <abbr title="Title">Home tel:</abbr> <strong><%= @patient.contact.homephone %></strong><br>
+              <abbr title="Title">City:</abbr> <strong><%= @patient.contact.city %> <%= @patient.contact.state %></strong><br>
+              <abbr title="Title">Country:</abbr> <strong><%= @patient.contact.country %> <%= @patient.contact.zipcode %></strong><br>
+            </address>
 
-    <address>
-      <abbr title="Title">Country:</abbr> <strong><%= @patient.contact.country %></strong><br>
-      <abbr title="Title">Zipcode:</abbr> <strong><%= @patient.contact.zipcode %></strong><br>
-    </address>
-  <%= link_to "Edit Your Contact", edit_patient_contact_path(@patient, @contact) , :class => "btn btn-warning btn-sm" %>
-    <hr>
-    <% else %>
-    <%= link_to "Add Contacts", new_patient_contact_path(@patient, @contact) , :class => "btn btn-success btn-lg" %>
-    <% end %>
-    
-  </div>
-  <div class="col-md-4">
-    <div class="list-group">
-      <a href="#" class="list-group-item disabled text-right"><strong> <%= @patient.fname %>'s MEDICATION LIST </strong></a>
-      <a href="#" class="list-group-item text-right"><%= @medicine.name %> . plusAid phamacy | <strong> 5 Refills </strong> </a>
-      <a href="#" class="list-group-item text-right">Oxycodia 323mg . CVS phamacy | <strong> 5 Refills </strong></a>
-      <a href="#" class="list-group-item text-right">more</a>
-    </div>
-    <hr>
-  </div>
-</div>
+            <address>
+              <abbr title="Title">Country:</abbr> <strong><%= @patient.contact.country %></strong><br>
+              <abbr title="Title">Zipcode:</abbr> <strong><%= @patient.contact.zipcode %></strong><br>
+            </address>
+            <%= link_to "Edit Your Contact", edit_patient_contact_path(@patient, @contact) , :class => "btn btn-warning btn-sm" %>
+            <hr>
+            <% else %>
+            <%= link_to "Add Contacts", new_patient_contact_path(@patient, @contact) , :class => "btn btn-success btn-lg" %>
+            <% end %>
+            
+          </div>
+          <div class="col-md-4">
+            <div class="list-group">
+              <% if !@s.nil? %>
+              <a href="#" class="list-group-item disabled text-right"><strong> <%= @patient.fname %>'s MEDICATION LIST </strong></a>
+              <a href="#" class="list-group-item text-right"><%= @medicine.name %> . plusAid phamacy | <strong> 5 Refills </strong> </a>
+              <a href="#" class="list-group-item text-right">Oxycodia 323mg . CVS phamacy | <strong> 5 Refills </strong></a>
+              <a href="#" class="list-group-item text-right">more</a>
+              <% end %>
+            </div>
+            <hr>
+          </div>
+        </div>
 
-<h4>Doctors Summary Notes</h4>
-<hr>
-<div class="row">
-  <% if !@patient.summaries.nil? %>
-  <% @summary.each do |summary| %>
-  <div class="col-md-12">
-    <blockquote>
-      <p><strong><%= @patient.fname %>'s</strong> visit notes added on: <strong> <%= summary.created_at.to_formatted_s(:long) %></strong> </p>
-      <p><strong> <%= summary.complaint %> </strong></p>
-      <footer><%= summary.notes %></footer>
-    </blockquote>
-  </div>
-  <div class="col-md-12 text-right">
-    <%= link_to "Show Medicine", patient_summary_medicines_path(@patient, summary), :class => "btn btn-success btn-sm" %> | <%= link_to "Add Medicine", new_patient_summary_medicine_path(@patient, summary), :class => "btn btn-success btn-sm" %> |
-    <%= link_to "Edit Note", edit_patient_summary_path(@patient, summary), :class => "btn btn-warning btn-sm"  %> | <%= link_to "Delete Note", patient_summary_path(@patient, summary), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"  %>
-    <hr>
+        <h4>Doctors Summary Notes</h4>
+        <hr>
+        <div class="row">
+          <% if !@patient.summaries.nil? %>
+          <% @summary.each do |summary| %>
+          <div class="col-md-12">
+            <blockquote>
+              <p><strong><%= @patient.fname %>'s</strong> visit notes added on: <strong> <%= summary.created_at.to_formatted_s(:long) %></strong> </p>
+              <p><strong> <%= summary.complaint %> </strong></p>
+              <footer><%= summary.notes %></footer>
+            </blockquote>
+          </div>
+          <div class="col-md-12 text-right">
+            
+            <%= link_to "Edit Note", edit_patient_summary_path(@patient, summary), :class => "btn btn-warning btn-sm"  %> | <%= link_to "Delete Note", patient_summary_path(@patient, summary), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"  %>
+            <hr>
 
-  </div>
-  <% end %>
-</div>
-<%= link_to "Add Another Summary", new_patient_summary_path(@patient, @summary), :class => "btn btn-success"  %>
+          </div>
+          <% end %>
+        </div>
+        <%= link_to "Add Another Summary", new_patient_summary_path(@patient, @summary), :class => "btn btn-success"  %>
+        <% else %>
+        <%= link_to "Add Summary", new_patient_summary_path(@patient, @summary), :class => "btn btn-success"  %>
+        <% end %>  <hr>
+
 <% else %>
-<%= link_to "Add Summary", new_patient_summary_path(@patient, @summary), :class => "btn btn-success"  %>
-<% end %>  <hr>
-
-
-
-<p> --- this is medicine for summary 13 </p>
-    <% @m.each do |medicine| %>
-        <p><%= medicine.name %>
-        <%= medicine.gram %>
-        <%= medicine.prescription %>
-        <%= medicine.refill %>
-        <%= medicine.summary %></p>
-        <%#= link_to 'Show', patient_summary_medicine(@patient, @s, medicine) %>
-        <%#= link_to 'Edit', edit_medicine_path(medicine) %>
-        <%#= link_to 'Destroy', medicine, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
-
-<p> -- ends here </p>
+<div class = "row">
+  <div class="col-md-12 text-center"> <%= link_to 'Add Your Information to get started', new_patient_path, :class => "btn btn-success btn-lg" %> </div>
+</div>
+<% end %>
 
 
 
