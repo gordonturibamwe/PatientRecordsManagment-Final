@@ -1,0 +1,37 @@
+<%= form_for([@patient, @summary, @medicine], url: patient_summary_medicines_path(@patient, @summary)) do |f| %>
+  <% if @medicine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@medicine.errors.count, "error") %> prohibited this medicine from being saved:</h2>
+
+      <ul>
+      <% @medicine.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :gram %><br>
+    <%= f.text_field :gram %>
+  </div>
+  <div class="field">
+    <%= f.label :prescription %><br>
+    <%= f.text_field :prescription %>
+  </div>
+  <div class="field">
+    <%= f.label :refill %><br>
+    <%= f.text_field :refill %>
+  </div>
+  <div class="field">
+    <%= f.label :summary_id %><br>
+    <%= f.text_field :summary_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

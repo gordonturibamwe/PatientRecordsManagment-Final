@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mobilephone:</strong>
+  <%= @contact.mobilephone %>
+</p>
+
+<p>
+  <strong>Homephone:</strong>
+  <%= @contact.homephone %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @contact.street %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @contact.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @contact.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @contact.country %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @contact.zipcode %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @contact.patient %>
+</p>
+
+<%= link_to 'Edit', edit_patient_contact_path(@patient, @contact) %> |
+<%= link_to 'Back', patient_contact_path(@patient, @contact) %>

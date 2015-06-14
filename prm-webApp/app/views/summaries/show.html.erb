@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @summary.notes %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @summary.patient %>
+</p>
+
+<%= link_to 'Edit', edit_summary_path(@summary), :class => "btn btn-default" %> |
+<%= link_to 'Back', summaries_path, :class => "btn btn-default" %>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patient Managment System</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container">
+<hr>
+<h2>Patient Managment System</h2>
+<hr>
+<% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: "alert alert-success" %>
+  <% end %>
+
+	<%= yield %>
+</div>
+
+</body>
+</html>
