@@ -15,6 +15,7 @@ class PatientsController < ApplicationController
       @patient = set_patient          # patient id
       @summary = @patient.summaries   # patient id, summary id, patient_id
       @contact = @patient.contact     # patient id, contact id, patient_id
+      @medicines = @patient.medicines
   end
 
   def new

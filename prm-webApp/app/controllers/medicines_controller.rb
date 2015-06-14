@@ -22,7 +22,7 @@ class MedicinesController < ApplicationController
 
     respond_to do |format|
       if @medicine.save
-        format.html { redirect_to @medicine, notice: 'Medicine was successfully created.' }
+        format.html { redirect_to patients_path, notice: 'Medicine was successfully created.' }
       else
         format.html { render :new }
       end
@@ -33,7 +33,7 @@ class MedicinesController < ApplicationController
     @patient = Patient.find(params[:patient_id])
     respond_to do |format|
       if @medicine.update(medicine_params)
-        format.html { redirect_to @medicine, notice: 'Medicine was successfully updated.' }
+        format.html { redirect_to @patients_path, notice: 'Medicine was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -43,7 +43,7 @@ class MedicinesController < ApplicationController
   def destroy
     @medicine.destroy
     respond_to do |format|
-      format.html { redirect_to medicines_url, notice: 'Medicine was successfully destroyed.' }
+      format.html { redirect_to patients_path, notice: 'Medicine was successfully destroyed.' }
     end
   end
 

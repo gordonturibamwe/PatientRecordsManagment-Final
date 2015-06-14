@@ -36,15 +36,15 @@
             <% end %>
             
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 text-right">
             <div class="list-group">
-              <% if !@s.nil? %>
               <a href="#" class="list-group-item disabled text-right"><strong> <%= @patient.fname %>'s MEDICATION LIST </strong></a>
-              <a href="#" class="list-group-item text-right"><%= @medicine.name %> . plusAid phamacy | <strong> 5 Refills </strong> </a>
-              <a href="#" class="list-group-item text-right">Oxycodia 323mg . CVS phamacy | <strong> 5 Refills </strong></a>
-              <a href="#" class="list-group-item text-right">more</a>
-              <% end %>
-            </div>
+              <% for medicine in @medicines %>
+               <a href="#" class="list-group-item text-right"><%= medicine.name %> . <%= medicine.gram %> . <%= medicine.prescription %> . <strong> <%= medicine.refill %> </strong> </a>
+               <% end %>
+           </div>
+              <%= link_to "Add Medicine", new_patient_medicine_path(@patient), :class => "btn btn-warning btn-sm" %>
+
             <hr>
           </div>
         </div>
