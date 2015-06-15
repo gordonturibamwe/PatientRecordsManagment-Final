@@ -6,6 +6,7 @@ class MedicinesController < ApplicationController
   end
 
   def show
+    @patient = Patient.find(params[:patient_id])
   end
 
   def new
@@ -14,6 +15,13 @@ class MedicinesController < ApplicationController
   end
 
   def edit
+    if current_user.doctor
+      @patient = Patient.find(params[:patient_id])
+      @medicine = @patient.medicines.find_by(params[:id])
+    else
+      @patient = Patient.find(params[:patient_id])
+      redirect_to patient_path(@patient)
+    end
   end
 
   def create
@@ -33,7 +41,7 @@ class MedicinesController < ApplicationController
     @patient = Patient.find(params[:patient_id])
     respond_to do |format|
       if @medicine.update(medicine_params)
-        format.html { redirect_to @patients_path, notice: 'Medicine was successfully updated.' }
+        format.html { redirect_to patient_path(@patient), notice: 'Medicine was successfully updated.' }
       else
         format.html { render :edit }
       end

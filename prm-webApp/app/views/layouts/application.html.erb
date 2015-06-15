@@ -8,16 +8,17 @@
 </head>
 <body>
 	<div class="container">
-		<hr>
+	<div class="row top30"></div>
 		<div class="row">
- 		 <div class="col-md-6"> <h2>Patient Managment System</h2></div> 
+ 		 <div class="col-md-6"></div> 
  		 <div class="col-md-6 text-right">
  		 	<% if user_signed_in? %>
+		<hr>
 		  <%= link_to "Sign out", destroy_user_session_path,:method => :delete, :class => "btn btn-danger" %> 
+		<hr>
 		  <% end %>
 		</div>
 	</div>
-		<hr>
 
 		<% flash.each do |name, msg| %>
 		<%= content_tag :div, msg, class: "alert alert-success" %>

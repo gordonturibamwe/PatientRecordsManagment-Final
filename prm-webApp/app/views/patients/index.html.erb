@@ -1,10 +1,67 @@
     <% if user_signed_in? %>
     
-<p id="notice"><%= notice %></p>
+    <p id="notice"><%= notice %></p>
 
-<div class="row">
-  <div class="col-md-12 text-center"> <%= link_to 'Add Your Information please', new_patient_path, :class => "btn btn-success btn-lg" %></div>
+    <div class="col-md-12">
+      <% if !@patients.nil? and current_user.doctor %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Gender</th>
+        <th>Date of Birth</th>
+        <th>Next of Kin</th>
+        <th>Next of Kin</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.fname %></td>
+        <td><%= patient.lname %></td>
+        <td><%= patient.gender %></td>
+        <td><%= patient.dob %> </td>
+        <td><%= patient.nextofkin %> </td>
+        <td><%= patient.nextofkinphone %> </td>
+        <td class="text-right"><%= link_to 'View', patient_path(patient), :class => "btn btn-default btn-xs" %>  
+
+			<!-- Small modal -->
+<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target=".bs-example-modal-sm">Delete Patient</button>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content text-center">
+    	 <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Confrim to delete</h4>
+      </div>
+    	<p></p>
+    	<p>
+      <%= link_to 'Confrim to Delete', patient_path(patient), :method => :delete, :class => "btn btn-danger btn-lg" %>
+  </p>
+    </div>
+  </div>
 </div>
-<% end %>
+        </td>
+      </tr>
+    <% end %>
+    <% end %>
+    </tbody>
+  </table>    	
+</div>
+    	<hr>
+    </div>
 
-
+    <% if !current_user.doctor %>
+    <div class="row">
+    	<div class="col-md-12 text-center"> 
+        <h1><small> 
+          You will need to add your personal information to get started. <br/>It helps the Doctors give you the right information about your helath on on your every scheduled appointment
+        </small></h1>
+        <hr>
+        <%= link_to 'Add Your Information please', new_patient_path, :class => "btn btn-success btn-lg" %>
+      </div>
+    </div>
+    <% end %>
+    <% end %>

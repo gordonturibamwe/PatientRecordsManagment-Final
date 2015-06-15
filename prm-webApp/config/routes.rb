@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :doctors
   root 'patients#index'
   devise_for :users
   get 'home/index', as: 'Welcome'

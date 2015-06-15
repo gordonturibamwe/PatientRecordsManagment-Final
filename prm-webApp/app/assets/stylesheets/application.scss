@@ -14,3 +14,33 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.form-signin {
+  max-width: 380px;
+  padding: 45px 35px 45px;
+  margin: 0 auto;
+  background-color: #afd8e7;
+  border: 1px solid #2e9ac1;
+  border-radius: 3px;
+
+  .form-signin-heading,
+  .checkbox {
+    margin-bottom: 30px;
+  }
+
+  .checkbox {
+    font-weight: normal;
+  }
+  .form-signin a {
+  	padding-top: 20px;
+  }
+
+}
+/* Top margins */
+.top5 { margin-top:5px; }
+.top7 { margin-top:7px; }
+.top10 { margin-top:10px; }
+.top15 { margin-top:15px; }
+.top20 { margin-top:20px; }
+.top25 { margin-top:25px; }
+.top30 { margin-top:30px; }

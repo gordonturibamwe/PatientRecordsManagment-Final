@@ -1,34 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @medicine.name %>
-</p>
-
-<p>
-  <strong>Prescription:</strong>
-  <%= @medicine.prescription %>
-</p>
-
-<p>
-  <strong>Gram:</strong>
-  <%= @medicine.gram %>
-</p>
-
-<p>
-  <strong>Refill:</strong>
-  <%= @medicine.refill %>
-</p>
-
-<p>
-  <strong>Info:</strong>
-  <%= @medicine.info %>
-</p>
-
-<p>
-  <strong>Patient:</strong>
-  <%= @medicine.patient %>
-</p>
-
-<%= link_to 'Edit', edit_medicine_path(@medicine) %> |
-<%= link_to 'Back', medicines_path %>
+  <div class="row">
+  <div class="col-md-4"> <label>Medicine Name</label> <%= @medicine.name %> </div>
+  <div class="col-md-4"> <label>Prescription</label> <%= @medicine.prescription %> </div>
+  <div class="col-md-4"> <label>Refills</label> <%= @medicine.refill %> </div>
+</div>
+  <div class="row">
+  <div class="col-md-12">  <label>Medicine Information</label></div>
+  <div class="col-md-12"> <%= @medicine.info %> </div>
+</div>
+<hr>
+<% if current_user.doctor %>
+<%= link_to 'Edit', edit_patient_medicine_path(@patient, @medicine.id), :class => "btn btn-default" %> | <% end %>
+<%= link_to 'Back', patient_path(@patient), :class => "btn btn-default" %>
