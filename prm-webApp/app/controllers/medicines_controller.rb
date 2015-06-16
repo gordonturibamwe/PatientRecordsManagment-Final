@@ -2,31 +2,36 @@ class MedicinesController < ApplicationController
   before_action :set_medicine, only: [:show, :edit, :update, :destroy]
 
   def index
-    @summary = Summary.find_by(params[:id])
-    @medicines = @summary.medicines
+    @medicines = Medicine.all
   end
 
   def show
-    @summary = Summary.find_by(params[:id])
-    @medicine = @summary.medicines
+    @patient = Patient.find(params[:patient_id])
+    @medicine = Medicine.find(params[:id])
   end
 
   def new
-    @patient = Patient.find_by(params[:id])
-    @summary = Summary.find_by(params[:id])
-    @medicine = @summary.medicines.build
+    @patient = Patient.find(params[:patient_id])
+    @medicine = @patient.medicines.build
   end
 
   def edit
+    if current_user.doctor
+      @patient = Patient.find(params[:patient_id])
+      @medicine = @patient.medicines.find_by(params[:id])
+    else
+      @patient = Patient.find(params[:patient_id])
+      redirect_to patient_path(@patient)
+    end
   end
 
   def create
-    @summary = Summary.find_by(params[:id])
-    @medicine = @summary.medicines.build(medicine_params)
+    @patient = Patient.find(params[:patient_id])
+    @medicine = @patient.medicines.build(medicine_params)
 
     respond_to do |format|
       if @medicine.save
-        format.html { redirect_to root_path, notice: 'Medicine was successfully created.' }
+        format.html { redirect_to patient_path(@patient), notice: 'Medicine was successfully created.' }
       else
         format.html { render :new }
       end
@@ -34,10 +39,10 @@ class MedicinesController < ApplicationController
   end
 
   def update
-    @summary = Summary.find_by(params[:id])
+    @patient = Patient.find(params[:patient_id])
     respond_to do |format|
       if @medicine.update(medicine_params)
-        format.html { redirect_to root_path, notice: 'Medicine was successfully updated.' }
+        format.html { redirect_to patient_path(@patient), notice: 'Medicine was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -45,11 +50,10 @@ class MedicinesController < ApplicationController
   end
 
   def destroy
-    @patient = Summary.find(params[:patient_id])
-    @summary = Summary.find_by(params[:id])
+    @patient = Patient.find(params[:patient_id])
     @medicine.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Medicine was successfully destroyed.' }
+      format.html { redirect_to patient_path(@patient), notice: 'Medicine was successfully deleted.' }
     end
   end
 
@@ -59,6 +63,6 @@ class MedicinesController < ApplicationController
     end
 
     def medicine_params
-      params.require(:medicine).permit(:name, :gram, :prescription, :refill, :summary_id)
+      params.require(:medicine).permit(:name, :prescription, :gram, :refill, :info, :patient_id)
     end
 end

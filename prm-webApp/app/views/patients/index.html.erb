@@ -1,22 +1,77 @@
-<p id="notice"><%= notice %></p>
+    <% if user_signed_in? %>
+    
+    <p id="notice"><%= notice %></p>
 
-  <div class="row">
-  <div class="col-md-9"> <h2>Listing Patients</h2> </div>
-  <div class="col-md-3 text-right"> <%= link_to 'Add Patient', new_patient_path, :class => "btn btn-success btn-lg" %> </div>
-</div>
-<hr>
-    <% @patients.each do |patient| %>
     <div class="row">
-    <div class="col-md-3"> <%= patient.fname %> <%= patient.lname %> </div>
-    <div class="col-md-1"> <%= patient.gender %> </div>
-    <div class="col-md-2"> <%= patient.dob %> </div>
-    <div class="col-md-2"> <%= patient.nextofkin %> </div>
-    <div class="col-md-1"> <%= patient.nextofkinphone %> </div>
-    <div class="col-md-3 text-right"> 
-      <%= link_to 'Show', patient, :class => "btn btn-success btn-sm" %> |
-      <%= link_to 'Edit', edit_patient_path(patient), :class => "btn btn-warning btn-sm" %> | <%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %>
-    </div>
-</div>
+      <% if !@patients.nil? and current_user.doctor %>
+      <div class="col-md-12"> 
+        <h1> <small> Doctor Welcome to the system. You have 
+          <% if !@patients.nil? %> <%= @patients.count %> <% end %>Patient(s) in the system </small> </h1>
+        <h2> <small> You can add summary notes from observations made from each patient visit, add medication, and complaints to their records. </small> </h2>
 <hr>
+      </div>
+      <div class="col-md-12">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Gender</th>
+        <th>Date of Birth</th>
+        <th>Next of Kin</th>
+        <th>Next of Kin</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.fname %></td>
+        <td><%= patient.lname %></td>
+        <td><%= patient.gender %></td>
+        <td><%= patient.dob %> </td>
+        <td><%= patient.nextofkin %> </td>
+        <td><%= patient.nextofkinphone %> </td>
+        <td class="text-right"><%= link_to 'View', patient_path(patient), :class => "btn btn-default btn-xs" %>  
+
+			<!-- Small modal -->
+<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target=".bs-example-modal-sm">Delete Patient</button>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content text-center">
+    	 <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Confrim to delete</h4>
+      </div>
+    	<p></p>
+    	<p>
+      <%= link_to 'Confrim to Delete', patient_path(patient), :method => :delete, :class => "btn btn-danger btn-lg" %>
+  </p>
+    </div>
+  </div>
+</div>
+        </td>
+      </tr>
     <% end %>
+    <% end %>
+    </tbody>
+  </table>    	
+</div>
+    	<hr>
+    </div>
+
+    <% if !current_user.doctor %>
+    <div class="row">
+    	<div class="col-md-12 text-center"> 
+        <h1><small> 
+          You will need to add your personal information to get started. <br/>It helps the Doctors give you the right information about your helath on on your every scheduled appointment
+        </small></h1>
+        <hr>
+        <%= link_to 'Add Your Information please', new_patient_path, :class => "btn btn-success btn-lg" %>
+      </div>
+    </div>
+  </div>
+    <% end %>
+    <% end %>
+</div>
 

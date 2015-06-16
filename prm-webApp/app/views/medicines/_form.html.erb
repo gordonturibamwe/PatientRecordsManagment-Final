@@ -1,4 +1,4 @@
-<%= form_for([@patient, @summary, @medicine], url: patient_summary_medicines_path(@patient, @summary)) do |f| %>
+<%= form_for([@patient, @medicine]) do |f| %>
   <% if @medicine.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@medicine.errors.count, "error") %> prohibited this medicine from being saved:</h2>
@@ -11,27 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.text_field :name, :class => "form-control", :placeholder => "Medicine Name" %>
   </div>
-  <div class="field">
-    <%= f.label :gram %><br>
-    <%= f.text_field :gram %>
+  <div class="form-group">
+    <%= f.text_field :prescription, :class => "form-control", :placeholder => "Medicine Prescription - 4 x 5 or 2 x 1" %>
   </div>
-  <div class="field">
-    <%= f.label :prescription %><br>
-    <%= f.text_field :prescription %>
+  <div class="form-group">
+    <%= f.text_field :gram, :class => "form-control", :placeholder => "Gramage - 500mg or 253mg" %>
   </div>
-  <div class="field">
-    <%= f.label :refill %><br>
-    <%= f.text_field :refill %>
+  <div class="form-group">
+    <%= f.text_field :refill, :class => "form-control", :placeholder => "Refills - 9" %>
   </div>
-  <div class="field">
-    <%= f.label :summary_id %><br>
-    <%= f.text_field :summary_id %>
+  <div class="form-group">
+    <%= f.text_area :info, :class => "form-control", :placeholder => "More information about the Medication" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="row">
+  <div class="col-md-4">
+    <%= f.submit :class => "btn btn-success" %>
 <% end %>
+
+

@@ -2,5 +2,7 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @medicine %> |
-<%= link_to 'Back', medicines_path %>
+| <%= link_to 'Show', patient_path(@patient), :class => "btn btn-default" %> |
+<%= link_to 'Back', patient_medicine_path(@patient, @medicine.id), :class => "btn btn-default" %>
+
+

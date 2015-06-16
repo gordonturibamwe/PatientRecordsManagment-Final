@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Patient Managment System</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>Patient Managment System</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-<hr>
-<h2>Patient Managment System</h2>
-<hr>
-<% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: "alert alert-success" %>
-  <% end %>
+	<div class="container">
+		<div class="row top30"></div>
+		<div class="row">
+			<hr>
+			<% if user_signed_in? %>
+			<div class="col-md-6"><%= link_to (image_tag "logo.png"), root_path %></div>
+			<div class="col-md-4 text-right">
+				<% if current_user.doctor %>
+				<div class="row top10"></div>
+				<%= link_to "Back to Patient list", patients_path, :class => "btn btn-default" %>
+				<% end %>
+			</div>
+			<div class="col-md-2 text-right">
+				<div class="row top10"></div>
+				<%= link_to "Sign out", destroy_user_session_path,:method => :delete, :class => "btn btn-danger" %>
+			</div>
+			<% else %>
+			<div class="col-md-12 text-center"><%= link_to (image_tag "logo.png"), root_path %></div> 
+			<% end %>
+			<div class="col-md-12 text-center"> <hr> </div> 
+		</div>
 
-	<%= yield %>
-</div>
+		<% flash.each do |name, msg| %>
+		<%= content_tag :div, msg, class: "alert alert-success" %>
+		<% end %>
+
+		<%= yield %>
+	</div>
 
 </body>
 </html>
